@@ -1,0 +1,179 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your p5.js Game</title>
+  <!-- 引入 p5.js ? -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+  <script>
+    let sheepImg;
+    let blackSheepImg;
+    let grassImg;
+    let leftSheepImg; // 左上角的羊圖片
+    let rightSheepImg; // 右上角的羊圖片
+    let selectedImg; // 選擇的羊的圖片
+    let sheepList = [];
+
+    function preload() {
+      sheepImg = loadImage('https://i.imgur.com/l0Kt5PG.png');
+      blackSheepImg = loadImage('https://i.imgur.com/RiHH6SR.png');
+      grassImg = loadImage('https://i.imgur.com/xBKbXj8.jpeg');
+      leftSheepImg = loadImage('https://i.imgur.com/l0Kt5PG.png'); // 左上角的羊圖片
+      rightSheepImg = loadImage('https://i.imgur.com/RiHH6SR.png'); // 右上角的羊圖片
+    }
+
+    function setup() {
+      createCanvas(400, 400);
+      selectedImg = sheepImg; // 初始選擇白羊
+    }
+
+    function draw() {
+      background(grassImg);
+      
+      // 顯示左上角和右上角的羊圖片
+      image(leftSheepImg, 0, 0, 50, 50);
+      image(rightSheepImg, width - 50, 0, 50, 50);
+      
+      // 顯示選擇的羊
+      image(selectedImg, 0, 60, 50, 50);
+
+      for (let sheep of sheepList) {
+        image(sheep.img, sheep.x, sheep.y, 50, 50);
+      }
+    }
+
+    function mouseClicked() {
+      // 如果在畫布上點擊
+      if (mouseX < width && mouseY < height) {
+        // 新增羊到滑鼠點擊的位置
+        sheepList.push({ x: mouseX - 25, y: mouseY - 25, img: selectedImg });
+      }
+    }
+
+    // 點擊選擇羊的圖片時更新選擇的羊
+    function mousePressed() {
+      if (mouseX < 50 && mouseY < 50) {
+        selectedImg = leftSheepImg; // 點擊左上角選擇左上的羊
+      } else if (mouseX > width - 50 && mouseY < 50) {
+        selectedImg = rightSheepImg; // 點擊右上角選擇右上的羊
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+WWW.DOWNLOADLY.IR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+WWW.DOWNLOADLY.IR
